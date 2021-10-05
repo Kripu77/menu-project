@@ -1,13 +1,17 @@
 import React,{useState} from 'react'
 
-const Categories = ({filterItems}) => {
+const Categories = ({filterItems, final}) => {
     const [isAll, setIsAll] = useState(true);
     return (
         <div className="btn-container">
-            <button className="filter-btn" onClick={()=>filterItems('breakfast')}> Breakfast  </button>
-    
-             <button className="filter-btn" onClick={()=>filterItems('lunch')}>Lunch </button>
-              <button className="filter-btn" onClick={()=>filterItems('all')}> Shakes </button>
+          {final.map((value)=>{
+
+return( 
+<div>
+ <button className="filter-btn">{value}</button>
+</div>)
+
+          })}
         </div>
     )
 }

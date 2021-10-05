@@ -10,7 +10,8 @@ const allBtn = new Set (menu.map((value)=>{
   
 }))
 
-const final = Array.from(allBtn); //array from will convert our buttons which are in the form of object to array
+const final = Array.from(allBtn);
+final.push('all'); //array from will convert our buttons which are in the form of object to array
 console.log(final);
 const App = () => {
     const [menu, setMenu] = useState(data);
@@ -34,7 +35,7 @@ const App = () => {
                  <div className="underline">
 
                  </div>
-<Categories filterItems = {filterItems}/>
+<Categories filterItems = {filterItems} final={final}/>
 <Menu  menuItems = {menu}/>
              </div>
 
