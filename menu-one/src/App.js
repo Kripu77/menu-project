@@ -4,7 +4,14 @@ import Menu from './Components/Menu'
 import "./CSS/index.css"
 import data from "./Components/data.js"
 import menu from './Components/data.js'
+const allBtn = new Set (menu.map((value)=>{
+    
+   return value.category; 
+  
+}))
 
+const final = Array.from(allBtn); //array from will convert our buttons which are in the form of object to array
+console.log(final);
 const App = () => {
     const [menu, setMenu] = useState(data);
     const [categories, setCategories] = useState([]);
