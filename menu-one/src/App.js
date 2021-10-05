@@ -1,47 +1,24 @@
-import React, {useState} from 'react'
-import Categories from './Components/Categories'
-import Menu from './Components/Menu'
-import "./CSS/index.css"
-import data from "./Components/data.js"
-import menu from './Components/data.js'
-const allBtn = new Set (menu.map((value, index)=>{
-    
-   return value.category; 
-  
-}))
+import React,{useState} from 'react';
+import "./CSS/index.css";
+import Categories from "./Components/Categories";
+import Menu from "./Components/Menu"
+import data from "./Components/data";
 
-const final = Array.from(allBtn);
-final.push('all'); //array from will convert our buttons which are in the form of object to array
-console.log(final);
 const App = () => {
-    const [menu, setMenu] = useState(data);
-    const [categories, setCategories] = useState([]);
+    const[menuItems, setMenuItems ] = useState(data);
 
-
-    const filterItems = (item)=>{
-        if(item === 'all'){
-            return setMenu(data);
-        }
-        setMenu(menu.filter((value)=>{
-          return  value.category === item
-
-        }))
-        return setMenu
-    }
     return (
-        <main> 
-         <section className='menu section'>
-             <div className='title'>
-                 <h2>KK's Kitchen</h2>
-                 <div className="underline">
-
-                 </div>
-<Categories filterItems = {filterItems} final={final}/>
-<Menu  menuItems = {menu}/>
-             </div>
-
-         </section>
-        </main>
+        <main>
+      <section className="menu section">
+        <div className="title">
+          <h2> KK's Kitchen menu</h2>
+          <div className="underline"></div>
+        </div>
+        <Menu/>
+        <Categories menuItems={menuItems}/>
+     
+      </section>
+    </main>
     )
 }
 
