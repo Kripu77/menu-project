@@ -1,9 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 
-const Categories = () => {
+const Categories = ({filterItems}) => {
+    const [isAll, setIsAll] = useState(true);
     return (
-        <div>
-            <h1> test</h1>
+        <div className="btn-container">
+            <button className="filter-btn" onClick={()=>filterItems('breakfast')}> Breakfast  </button>
+    
             
         </div>
     )
