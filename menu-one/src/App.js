@@ -4,7 +4,7 @@ import Menu from './Components/Menu'
 import "./CSS/index.css"
 import data from "./Components/data.js"
 import menu from './Components/data.js'
-const allBtn = new Set (menu.map((value)=>{
+const allBtn = new Set (menu.map((value, index)=>{
     
    return value.category; 
   
@@ -26,6 +26,7 @@ const App = () => {
           return  value.category === item
 
         }))
+        return setMenu
     }
     return (
         <main> 
