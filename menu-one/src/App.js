@@ -11,8 +11,11 @@ const App = () => {
 
 
     const filterItems = (item)=>{
+        if(item === 'all'){
+            return setMenu(data);
+        }
         setMenu(menu.filter((value)=>{
-          return  menu.category === item
+          return  value.category === item
 
         }))
     }
