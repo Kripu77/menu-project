@@ -1,9 +1,14 @@
 import React from 'react'
 
-const Menu = () => {
+const Menu = ({allBtns, filterFn}) => {
     return (
         <div>
-            <h1> Tets</h1>
+           {allBtns.map((value, index)=>{
+               return <div key={index} className='btn-container'>
+                   <button onClick={()=>filterFn(value)}> {value}</button>
+
+</div>
+           })}
         </div>
     )
 }
