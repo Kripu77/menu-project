@@ -1,24 +1,41 @@
-import React,{useState} from 'react'
-import data from './Components/data'
+import React, {useState} from 'react'
+import data from './Components/data';
 import Categories from "./Components/Categories";
-import Menu from "./Components/Menu"
-import "./CSS/index.css";
+import Menu from "./Components/Menu";
+import "./CSS/index.css"
+
+const allBtns = new Set(data.map((value)=> value.category)) //set method only returns unique value i.e. not repeated but in terms of object 
+
+
+const finalBtn = Array.from(allBtns);
+finalBtn.push('all');
+console.log(finalBtn);
+
+
 const App = () => {
-    const [isMenu, setIsMenu] = useState(data);
+    const [menuItems, setMenuItems] = useState(data);
+
+    const filterFn = (value)=>{
+
+        if(value==="all"){
+            return setMenuItems(data);
+        }
+         setMenuItems(data.filter((values)=>{
+             return values.category === value;
+         }))
+    }
+
     return (
- 
-            <main>
+       <main>
       <section className="menu section">
         <div className="title">
-          <h2>our menu</h2>
+          <h2>KK'S Kitchen menu</h2>
           <div className="underline"></div>
         </div>
-         <Categories/> 
-           <Menu isMenu={isMenu}/>
+        <Categories finalBtn={finalBtn} filterFn={filterFn}/>
+        <Menu menuItems={menuItems} />
       </section>
     </main>
-          
-     
     )
 }
 
