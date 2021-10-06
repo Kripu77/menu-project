@@ -1,16 +1,23 @@
 import React from 'react'
 
-const Menu = ({allBtns, filterFn}) => {
+const Menu = ({isMenu}) => {
+    console.log(isMenu)
     return (
         <div>
-           {allBtns.map((value, index)=>{
-               return <div key={index} className='btn-container'>
-                   <button onClick={()=>filterFn(value)}> {value}</button>
+           {isMenu.map((value)=>{
+               const{id, desc, img, title, name} = value;
+               return(<div key={id}>
+                   <h3> {title}</h3>
+                   <p> {title}</p>
+                   <p>{name}</p>
+                   <p>{desc}</p>
+                   <img src={img}/>
+                
+                   
+                    </div>)
 
-</div>
            })}
-        </div>
-    )
-}
+            </div> )
+     }
 
 export default Menu
